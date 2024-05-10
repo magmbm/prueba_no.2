@@ -1,0 +1,9 @@
+Home -Magdiel
+About Us -Felipe
+Search Page -Magdiel
+Carrito -Magdiel
+Pago -Magdiel
+Novedades -Felipe
+
+API videojuegos
+
