@@ -1,0 +1,33 @@
+body{
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.navbar-clase{
+    height: 85px;
+}
+
+.carusel{
+    height: 400px;
+}
+
+/*Check the object-fit*/
+.carusel-img{
+    height: 400px;
+    object-fit: fill;
+}
+
+.tienda-search-bar{
+    height: 100px;
+    align-content: center;
+    background-color: orange;
+}
+
+#search-input{
+    text-align: center;
+    width: 55%;
+}
