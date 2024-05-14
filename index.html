@@ -11,7 +11,7 @@
     <title>Home</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-clase">
+    <nav class="navbar navbar-expand-lg navbar-dark  navbar-clase">
         <a class="navbar-brand" href="#">Game Buy</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -32,6 +32,7 @@
             </li>
           </ul>
         </div>
+          <a href="carrito.html"><img src="/img/carrito.png" height="60" width="60"></a>
       </nav>
       <div id="carouselExampleInterval" class="carousel slide carusel" data-ride="carousel">
         <div class="carousel-inner">
@@ -56,13 +57,46 @@
       </div>
     <script src="/js/main.js"></script> 
     <div class="container my-4">
-        <h3 class="row justify-content-center">¿Qué juegos buscas?</h3>
-        <div class="input-group">
+        <h3 class="row justify-content-center my-4">¿Qué juegos buscas?</h3>
+        <div class="row input-group justify-content-center ">
             <div class="input-group-prepend">
               <div class="input-group-text">Lupa</div>
             </div>
             <input type="text" class="form-control" id="home_search_bar" placeholder="Dark Souls">
         </div>
+        <!--Manejar la alineacion del texto-->
+        <p class="row justify-content-center my-5" id="home-desc">
+          Game Buy es la quinta empresa nacional más grande de videojuegos de la comuna y estamos muy interesados en mostrarles
+          todos lo que tenemos para ofrecerles y necesito rapidamente rellenar este espacio para probar un pequeño e insignificante
+          tema, ojala funcione lo mejor posible Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas placerat augue vitae 
+          tortor rhoncus posuere. Maecenas sollicitudin enim massa, vitae sodales massa ullamcorper in. Phasellus maximus consequat 
+          dignissim. Ut sit amet maximus dolor. Aliquam porttitor purus est, tempus gravida ex interdum eget. Pellentesque ornare nec 
+          turpis id rutrum. Cras bibendum elit lectus, eu mollis neque pharetra quis. Curabitur non venenatis mi. Sed blandit, erat et 
+          aliquet suscipit, massa orci scelerisque libero, ut mattis purus lacus ac risus. In hac habitasse platea dictumst. Suspendisse 
+          vehicula ipsum massa, sed pharetra dolor congue non. Fusce efficitur at eros nec consectetur.
+
+        </p>
+        <div class="row justify-content-center">
+          <div class="home-ad ">
+            <img src="img/mario.jpeg">
+            <div class="home-ad-cont">
+              <h3><strong>Nintendo lo hace otra vez</strong></h3>
+              <p>El titan Japones ha roto los estándares con el lanzamiento de Super Mario Cuba y los fanáticos
+                no pueden esperar a ver más del nuevo estreno de la saga más famosa de Nintendo
+              </p>
+            </div>
+          </div>
+          <div class="home-ad ">
+            <img src="img/mario.jpeg">
+            <div class="home-ad-cont">
+              <h3><strong>Nintendo lo hace otra vez</strong></h3>
+              <p>El titan Japones ha roto los estándares con el lanzamiento de Super Mario Cuba y los fanáticos
+                no pueden esperar a ver más del nuevo estreno de la saga más famosa de Nintendo
+              </p>
+            </div>
+          </div>
+        </div>
     </div>
+
 </body>
 </html>

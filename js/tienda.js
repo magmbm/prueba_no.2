@@ -13,14 +13,19 @@ const settings = {
 
 $(document).ready(function(){
     $.ajax(settings).done(function (response) {
-        $("#store-display").append(
-            '<div class="carta">' +
-            '<img src="/img/logo_1.png" alt="Avatar" style="width:100%">' +
-            '<div class="card-cont">' +
-              '<h4><b>John Doe</b></h4>' +
-              '<p>Architect & Engineer</p>' +
-            '</div>' +
-            '</div>'
-        );
+        console.log(response);
+        $.each(response.results, function(i, item){
+            $("#store-display").append(
+                '<div class="carta">' +
+                    '<img src="' + item.background_image +'"alt="Avatar" class="carta-img"> ' +
+                    '<div class="card-cont">' +
+                        '<h4 class="my-3"><b>'+ item.name + '</b></h4>' +
+                        '<p>Architect & Engineer</p>' +
+                        '<p>$50.990</p>' +
+                        '<button class="btn btn-primary carta-btn" type="button">Ver más</button>' +
+                    '</div>' +
+                '</div>'
+            );
+        })
     });
 })
