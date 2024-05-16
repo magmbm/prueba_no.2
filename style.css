@@ -12,12 +12,12 @@ body{
 }
 
 .carusel{
-    height: 400px;
+    height: 500px;  /*Editado, original es 400px*/
 }
 
 /*Check the object-fit*/
 .carusel-img{
-    height: 400px;
+    height: 500px;  /*Editado, original es 400px*/
     object-fit: fill;
 }
 
