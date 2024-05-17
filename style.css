@@ -1,3 +1,18 @@
+
+h1{
+    font-size: 3em;
+    font-weight: bold;
+    text-align: center;
+    color: rgb(0, 119, 255);
+}
+
+p{
+    text-align: center;
+    margin: 0;
+}
+
+
+
 html, body{
     overflow-x: hidden;
     padding: 0px;
@@ -7,6 +22,8 @@ html, body{
     width: 100vw;
     box-sizing: border-box;
 }
+
+
 
 /*Home*/
 .line{
@@ -61,6 +78,7 @@ html, body{
 .navbar-clase{
     height: 85px;
     margin-bottom: 0px;
+
     background-color: #2293F1;
 }
 
@@ -71,12 +89,20 @@ html, body{
 }
 
 .carusel{
-    height: 400px;
+
+    height: 500px;
+
+
+
 }
 
 /*Check the object-fit*/
 .carusel-img{
-    height: 400px;
+
+    height: 500px;
+
+
+
     object-fit: fill;
 }
 
@@ -140,6 +166,8 @@ html, body{
 
 /*Producto*/
 
+
+
 .prod-img-default{
 
 }
@@ -173,16 +201,20 @@ html, body{
   text-align: justify;
 }
 
+
 .prod-img{
   width: 25rem;
   height: 30rem;
 }
+
+
 
 #prod-add{
   background-color: #FF943B;
   border-color: #2E2E2E;
   border-width: 2px;
 }
+
 
 .boton-carrito{
     border-style: none;
@@ -191,6 +223,7 @@ html, body{
     margin: 2px 5px 8px 5px;
     background: none;
 }
+
 
 
 /*Pago*/
@@ -221,6 +254,7 @@ html, body{
   font-size: 280%;
   font-weight: bold;
   border-radius: 26px;
+
 }
 
 .pago-header{
@@ -232,8 +266,11 @@ html, body{
 
 .pago-header h3{
   font-size: 4rem;
+
+
   display: flexbox;
   justify-content: center;
+
 }
 
 .pago-detalle, .pago-pedido{
@@ -241,6 +278,8 @@ html, body{
   border: solid 1px lightgray;
   border-radius: 8px;
 }
+
+
 
 .pedido-numbers{
   display: inline;
@@ -292,6 +331,7 @@ html, body{
 .container-pago{
   margin-bottom: 200px;
 }
+
 
 .form-apellido, .form-nombre, .form-email{
   padding-bottom: 20px;
@@ -371,6 +411,9 @@ ul {
 .footer-section {
   background: #FF943B;
   position: relative;
+  margin-top: 10%;
+
+
 }
 .footer-cta {
   border-bottom: 1px solid #373636;
