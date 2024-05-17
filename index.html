@@ -11,7 +11,7 @@
     <title>Home</title>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark  navbar-clase">
+  <nav class="navbar navbar-expand-lg navbar-dark navbar-clase">
       <a class="navbar-brand" href="index.html">Game Buy<img src="img/logo_1.png" class="logo-img"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -32,7 +32,7 @@
           </li>
         </ul>
       </div>
-        <a href="carrito.html"><img src="/img/carrito.png" height="60" width="60"></a>
+        <!--<a href="carrito.html"><img src="/img/carrito.png" height="60" width="60"></a>-->
     </nav>
     <div id="carouselExampleInterval" class="carousel slide carusel" data-ride="carousel">
       <div class="carousel-inner">
@@ -55,16 +55,11 @@
         <span class="sr-only">Next</span>
       </button>
     </div>
-  <script src="/js/main.js"></script> 
+    <hr class="line" id="orange_l">
+    <hr class="line" id="grey_l">
   <div class="container my-5">
-      <h3 class="row justify-content-center my-4">¿Qué juegos buscas?</h3>
-      <div class="row input-group justify-content-center ">
-          <div class="input-group-prepend">
-            <div class="input-group-text">Lupa</div>
-          </div>
-          <input list="lista_de_juegos" type="text" class="form-control" id="home_search_bar" placeholder="Dark Souls">
-      </div>
-      <datalist id="lista_de_juegos">
+      <h1 class="row justify-content-center my-4">¿Qué juegos buscas?</h1>
+      <h4 class="row justify-content-center">Dejanos ayudarte</h4>
       </datalist>
       <!--Manejar la alineacion del texto-->
       <p class="row justify-content-center my-5" id="home-desc">
@@ -72,13 +67,15 @@
         todos lo que tenemos para ofrecerles y necesito rapidamente rellenar este espacio para probar un pequeño e insignificante
         tema, ojala funcione lo mejor posible Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas placerat augue vitae 
         tortor rhoncus posuere. Maecenas sollicitudin enim massa, vitae sodales massa ullamcorper in. Phasellus maximus consequat 
-        dignissim. Ut sit amet maximus dolor. Aliquam porttitor purus est, tempus gravida ex interdum eget. Pellentesque ornare nec 
+        dignissim. 
         turpis id rutrum. Cras bibendum elit lectus, eu mollis neque pharetra quis. Curabitur non venenatis mi. Sed blandit, erat et 
         aliquet suscipit, massa orci scelerisque libero, ut mattis purus lacus ac risus. In hac habitasse platea dictumst. Suspendisse 
         vehicula ipsum massa, sed pharetra dolor congue non. Fusce efficitur at eros nec consectetur.
 
       </p>
-      <div class="row justify-content-center">
+  </div>
+  <div class="container-fluid ">
+      <div class="row justify-content-center adds-inicio">
         <div class="home-ad ">
           <img src="img/mario.jpeg">
           <div class="home-ad-cont">
@@ -89,17 +86,18 @@
           </div>
         </div>
         <div class="home-ad ">
-          <img src="img/mario.jpeg">
+          <img src="img/epicgames.jpeg">
           <div class="home-ad-cont">
-            <h3><strong>Nintendo lo hace otra vez</strong></h3>
-            <p>El titan Japones ha roto los estándares con el lanzamiento de Super Mario Cuba y los fanáticos
-              no pueden esperar a ver más del nuevo estreno de la saga más famosa de Nintendo
+            <h3><strong>Epic Games nos sorprende con sus nuevas políticas</strong></h3>
+            <p>
+              Epic Games ha lanzado una rueda de prensa en la cual informó que su plataforma funcionará solo de martes a viernes
+              y que busca sacar a los niños de la sobreinfluencia sin perder ingresos.
             </p>
           </div>
         </div>
       </div>
   </div>
-  <footer class="footer-section ">
+  <footer class="footer-section my-5">
     <div class="container">
         <div class="footer-cta pt-5 pb-5">
             <div class="row">
@@ -157,16 +155,10 @@
                             <h3>Useful Links</h3>
                         </div>
                         <ul>
-                            <li><a href="#">Inicio</a></li>
-                            <li><a href="#">Sobre Nosotros</a></li>
-                            <li><a href="#">Tienda</a></li>
-                            <li><a href="#">Novedades</a></li>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">About us</a></li>
-                            <li><a href="#">Our Services</a></li>
-                            <li><a href="#">Expert Team</a></li>
-                            <li><a href="#">Contact us</a></li>
-                            <li><a href="#">Latest News</a></li>
+                            <li><a href="index.html">Inicio</a></li>
+                            <li><a href="about.html">Sobre Nosotros</a></li>
+                            <li><a href="tienda.html">Tienda</a></li>
+                            <li><a href="novedades.html">Novedades</a></li>
                         </ul>
                     </div>
                 </div>

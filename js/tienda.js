@@ -11,10 +11,11 @@ export const settings = {
 	}
 };
 
+let busqueda= '';
 export let productos= [];
 export let product_id= 0;
 
-function getGenero(data){
+export function getGenero(data){
     let genero_str= '';
     $.each(data.genres, function(i, item){
         if(i>0){
@@ -25,6 +26,23 @@ function getGenero(data){
     return genero_str;
 }
 
+function searchByWord(text){
+    let palabra= '';
+    let word_arr= [];
+    let cont= 0;
+    for(let i= 0; i<text.length; i++){
+        if(text.charAt(i)!= ' '){ 
+            palabra+= text.charAt(i);
+            console.log(text.charAt(i) + "M");
+        }else{
+            word_arr[cont]= palabra;
+            cont++;
+            palabra= '';
+        }
+    }
+    word_arr[cont]= palabra;
+    return word_arr;
+}
 
 function getIndexOfData(){
     const botonesTienda= document.getElementsByClassName("carta-btn");
@@ -64,15 +82,14 @@ $(document).ready(function(){
                             '<p>$50.990</p>' +
                         '</div>'+
                         '<div class="lower-cont">'+
-                            '<button  id="'+ i.toString() + '-store-btn" class="btn btn-primary carta-btn" type="button">Ver más</button>' +
+                            '<button  id="'+ i.toString() + '-store-btn-m" class="btn btn-primary carta-btn" type="button">Ver más</button>' +
                         '</div>'+
                     '</div>' +
                 '</div>'
             );
         }) 
         getIndexOfData();
-
-        $("#tienda-buscador").on("keydown", function(event){
+        $("#tienda-buscador").on("keyup", function(event){
             $("#store-display").empty();
             busqueda= $("#tienda-buscador").val().toLowerCase();
             if(event.key== "Enter"){
@@ -88,33 +105,62 @@ $(document).ready(function(){
                                         '<p>$50.990</p>' +
                                     '</div>'+
                                     '<div class="lower-cont">'+
-                                        '<button  id="'+ i.toString() + '-store-btn" class="btn btn-primary carta-btn" type="button">Ver más</button>' +
+                                        '<button  id="'+ i.toString() + '-store-btn-n" class="btn btn-primary carta-btn" type="button">Ver más</button>' +
                                     '</div>'+
                                 '</div>' +
                             '</div>'
 
                         );
-                    }if(busqueda.includes(item.name.toLowerCase())){
-                        $("#store-display").append(
-                            '<div class="carta">' +
-                                '<img src="' + item.background_image +'"alt="Avatar" class="carta-img"> ' +
-                                '<div class="card-cont">' +
-                                    '<div class="upper-cont">'+
-                                        '<h4 class="my-3"><b>'+ item.name + '</b></h4>' +
-                                        '<p>'+ getGenero(item) +'</p>' +
-                                        '<p>$50.990</p>' +
-                                    '</div>'+
-                                    '<div class="lower-cont">'+
-                                        '<button  id="'+ i.toString() + '-store-btn" class="btn btn-primary carta-btn" type="button">Ver más</button>' +
-                                    '</div>'+
-                                '</div>' +
-                            '</div>'
-                        );
-                    })
+
+                        getIndexOfData();
+                    }else{
+                        let words= searchByWord(busqueda);
+                        for(let i= 0; i<words.length; i++){
+                            console.log(words[i] + "h");
+                            if(item.name.toLowerCase().includes(words[i])){
+                                $("#store-display").append(
+                                '<div class="carta">' +
+                                    '<img src="' + item.background_image +'"alt="Avatar" class="carta-img"> ' +
+                                    '<div class="card-cont">' +
+                                        '<div class="upper-cont">'+
+                                            '<h4 class="my-3"><b>'+ item.name + '</b></h4>' +
+                                            '<p>'+ getGenero(item) +'</p>' +
+                                            '<p>$50.990</p>' +
+                                        '</div>'+
+                                        '<div class="lower-cont">'+
+                                            '<button  id="'+ i.toString() + '-store-btn-a" class="btn btn-primary carta-btn" type="button">Ver más</button>' +
+                                        '</div>'+
+                                    '</div>' +
+                                '</div>'
+                            );
+                            } 
+                        }
+                    } 
+                })
             }
+            if(busqueda== ""){
+                $.each(response.results, function(i, item){
+                    $("#store-display").append(
+                        '<div class="carta">' +
+                            '<img src="' + item.background_image +'"alt="Avatar" class="carta-img"> ' +
+                            '<div class="card-cont">' +
+                                '<div class="upper-cont">'+
+                                    '<h4 class="my-3"><b>'+ item.name + '</b></h4>' +
+                                    '<p>'+ getGenero(item) +'</p>' +
+                                    '<p>$50.990</p>' +
+                                '</div>'+
+                                '<div class="lower-cont">'+
+                                    '<button  id="'+ i.toString() + '-store-btn-b" class="btn btn-primary carta-btn" type="button">Ver más</button>' +
+                                '</div>'+
+                            '</div>' +
+                        '</div>'
+                    );
+                })
+                getIndexOfData();
+            }
+        })
 
-        })
-        })
+    })
 });
 
 

@@ -1,10 +1,10 @@
-const regex= /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g
-let email;
-let pnombre;
-let snombre;
-let paterno;
-let materno;
+import { settings } from "./tienda.js";
+
+const regex= /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
 let empty_msg= "No puede dejar este campo vacio";
+let data;
+let cantidad= localStorage.getItem("cantidad");
+let data_idx= localStorage.getItem("idx");
 
 
 if(regex.test("pedro@yahoo.cl")){
@@ -14,48 +14,67 @@ if(regex.test("pedro@yahoo.cl")){
 };
 
 $(document).ready(function(){
+    let email= $("#emailInput").val();
+    let pnombre= $("#p_nombre").val();
+    let paterno= $("#paternoInput").val();
+    let materno= $("#maternoInput").val();
+
+    $.ajax(settings).done(function (response){
+        data= response.results[data_idx];
+        document.getElementById("pedido-img").src= (data.background_image).toString();
+        $(".pedido-nombre").append(
+            (data.name).toString()
+        );
+        $(".pedido-cant").append(
+            cantidad 
+        );
+        $(".sub-precio").append(
+            '<p>'+ (cantidad * 50990).toString() +'</p>'
+        );
+        $(".total-precio").append(
+            '<p>'+ (cantidad * 50990).toString() + '</p>'
+        );
+    })
+
     $("#emailSmall").css("visibility", "hidden");
     $("#primerSmall").css("visibility", "hidden");
     $("paternoSmall").css("visibility", "hidden");
     $("maternoSmall").css("visibility", "hidden");
 
+    $("#emailSmall").css("color", "red");
+    $("#primerSmall").css("color", "red");
+    $("paternoSmall").css("color", "red");
+    $("maternoSmall").css("color", "red");
 
+    $("#emailInput").on("focusout", function(){
+        email= $("#emailInput").val();
+        if(email== "" || email == " "){
+            document.getElementById("emailSmall").innerHTML= empty_msg;
+            $("#emailSmall").css("visibility", "visible");
+        }else if(!regex.test(email)){
+            document.getElementById("emailSmall").innerHTML= "Debe ingresar un email valido";
+            $("#emailSmall").css("visibility", "visible");
+        }else{
+            console.log("3");
+            $("#emailSmall").css("visibility", "hidden");
+        }
+    });
+
+    $("#p_nombre").on("focusout", function(){
+        pnombre= $("#p_nombre").val();
+        if(pnombre== "" || pnombre == " "){
+            document.getElementById("primerSmall")= empty_msg;
+            $("#primerSmall").css("visibility", "visible");
+        }else{
+            $("#primerSmall").css("visibility", "hidden");
+        }
+    })
 
 });
 
 
-$("#emailInput").on("focusout", function(){
-    email= $("#emailInput").val();
-    console.log("Nuevo " + email);
-    if(email== "" || email == " "){
-        $("#emailInput").css("border-color", "red");
-        $("#emailSmall").text(empty_msg);
-        $("#emailSmall").css("visibility", "visible");
-        console.log("1");
-    }else if(!regex.test(email)){
-        console.log("2 ");
-        $("#emailInput").css("border-color", "red");
-        $("#emailSmall").text("Ingrese un email valido") ;
-        $("#emailSmall").css("visibility", "visible");
-    }else{
-        console.log("3");
-        $("#emailSmall").css("visibility", "hidden");
-        $("#emailInput").css("border-color", "#63E400");
-    }
-});
 
 //Revisar
-$("#p_nombre").on("focusout", function(){
-    pnombre= $("#p_nombre").val();
-    if(pnombre== "" || pnombre == " "){
-        $("#p_nombre").css("border-color", "red");
-        $("#primerSmall").text(empty_msg);
-        $("#primerSmall").toggle();
-    }else{
-        $("#primerSmall").toggle();
-        $("#p_nombre").css("border-color", "#63E400");
-    }
-})
 
 $("#paternoInput").on("focusout", function(){
     paterno= $("#paternoInput").val();
