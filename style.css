@@ -154,6 +154,15 @@ html, body{
 
 }
 
+.upper-cont{
+
+}
+
+.lower-cont{
+
+}
+
+
 .carta-btn{
     justify-self: end;
     margin: 8px 2px 8px 1px;
@@ -166,7 +175,18 @@ html, body{
 
 /*Producto*/
 
+.fecha-prod{
 
+}
+
+.prod-flexx{
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: start;
+}
 
 .prod-img-default{
 
@@ -311,12 +331,12 @@ html, body{
   justify-content: space-between;
 }
 
-.upper-cont{
+.upper-cont-pedido{
   display: flex;
   align-items: center;
 }
 
-.lower-cont{
+.lower-cont-pedido{
   display: flex;
   align-items: center;
   margin-left: 1rem;
