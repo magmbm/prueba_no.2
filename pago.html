@@ -20,36 +20,31 @@
     <div class="container-fluid">
         <div class="row">
             <form class="col mx-4 my-3 pago-detalle">
-                <label>Nombre Completo</label>
-                <div class="form-row form-nombre">
-                    <div class="col">
-                        <input type="text" class="form-control" id="p_nombre" placeholder="Primer Nombre">
-                        <small id="primerSmall" class="form-text text-muted"></small>
-                    </div>
-                    <div class="col">
-                        <input type="text" class="form-control" id="s_nombre" placeholder="Segundo Nombre">
-                    </div>
+                <div class="form-group">
+                <label for="nombreInput">Nombre(s)</label>
+                <input  class="form-control" id="nombreInput" aria-describedby="emailHelp" placeholder="Juan Martínez">
+                <small id="nombreSmall"></small>
                 </div>
                 <label>Apellidos</label>
                 <div class="form-row form-apellido">
                     <div class="col">
                         <input type="text" class="form-control" id="paternoInput" placeholder="Apellido Paterno">
-                        <small id="paternoSmall" class="form-text text-muted"></small>
+                        <small id="paternoSmall" ></small>
                     </div>
                     <div class="col">
                         <input type="text" class="form-control" id="maternoInput" placeholder="Apellido Materno">
-                        <small id="maternoSmall" class="form-text text-muted"></small>
+                        <small id="maternoSmall" ></small>
                     </div>
-                  </div>
-                <div class="form-group form-email">
+                </div>
+                <div class="form-group">
                 <label for="emailInput">Email address</label>
                 <input  class="form-control" id="emailInput" aria-describedby="emailHelp" placeholder="juan@gmail.com">
-                <small id="emailSmall" class="form-text text-muted"></small>
+                <small id="emailSmall"></small>
                 </div>
                 <div class="form-group form-envio">
                 <label for="emailInput">Metodo de envío</label>
                 <div class="custom-control custom-radio">
-                    <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
+                    <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input" checked>
                     <label class="custom-control-label" for="customRadio1" id="check-envio">Envío $1.500</label>
                 </div>
                 <div class="custom-control custom-radio ">
@@ -62,10 +57,12 @@
             <div class="col mx-4 my-3 pago-pedido">
                 <h4>Revisión del pedido</h4>
                 <hr>
-                <div class="pedido-cont">
-                    <img id="pedido-img" class="img-fluid">
-                    <p class="pedido-nombre"></p>
-                    <div class="d-flex">
+                <div class="pedido-cont row">
+                    <div class="upper-cont">
+                        <img id="pedido-img" class="img-fluid">
+                        <p class="pedido-nombre"></p>
+                    </div>
+                    <div class="lower-cont">
                         <p class="pedido-cant"></p>
                         <p>&nbsp;&nbsp;X</p>
                         <p id="pedido-precio">&nbsp;&nbsp;$50.990</p>
@@ -82,7 +79,7 @@
             </div>
         </div>
     </div>
-    <div class="container my-4">
+    <div class="container my-4 mx-2">
         <small class="row justify-content-center">Todos los derechos de Game Buy estan protejidos bajo ley "Antirobos Vamos por Chile progreso, libertad y dignidad" decretada el año 2021 © </small>
     </div>
     <script type="module" src="/js/pago.js"></script>

@@ -208,7 +208,8 @@ html, body{
 #pedido-img{
   width: 6rem;
   height: 6rem;
-  margin: 0px;
+  margin: 2px;
+  margin-left: 1rem;
 }
 
 .pago-name{
@@ -241,6 +242,10 @@ html, body{
   border-radius: 8px;
 }
 
+.pedido-numbers{
+  display: inline;
+}
+
 .pago-pedido{
   height: 22rem;
 }
@@ -264,10 +269,24 @@ html, body{
   display: flex;
   align-items: center;
   margin-top: 1rem;
+  justify-content: space-between;
+}
+
+.upper-cont{
+  display: flex;
+  align-items: center;
+}
+
+.lower-cont{
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 
 .pedido-nombre{
-  margin: 0px 1rem 0px 1rem;
+  margin-left: 1rem;
+  margin-right: 2rem;
 }
 
 .container-pago{

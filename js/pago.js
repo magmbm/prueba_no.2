@@ -15,7 +15,7 @@ if(regex.test("pedro@yahoo.cl")){
 
 $(document).ready(function(){
     let email= $("#emailInput").val();
-    let pnombre= $("#p_nombre").val();
+    let pnombre= $("#nombreInput").val();
     let paterno= $("#paternoInput").val();
     let materno= $("#maternoInput").val();
 
@@ -29,10 +29,10 @@ $(document).ready(function(){
             cantidad 
         );
         $(".sub-precio").append(
-            '<p>'+ (cantidad * 50990).toString() +'</p>'
+            '<p>$'+ (cantidad * 50990).toString() +'</p>'
         );
         $(".total-precio").append(
-            '<p>'+ (cantidad * 50990).toString() + '</p>'
+            '<p>$'+ (cantidad * 50990).toString() + '</p>'
         );
     })
 
@@ -42,9 +42,9 @@ $(document).ready(function(){
     $("maternoSmall").css("visibility", "hidden");
 
     $("#emailSmall").css("color", "red");
-    $("#primerSmall").css("color", "red");
-    $("paternoSmall").css("color", "red");
-    $("maternoSmall").css("color", "red");
+    $("#nombreSmall").css("color", "red");
+    $("#paternoSmall").css("color", "red");
+    $("#maternoSmall").css("color", "red");
 
     $("#emailInput").on("focusout", function(){
         email= $("#emailInput").val();
@@ -60,80 +60,73 @@ $(document).ready(function(){
         }
     });
 
-    $("#p_nombre").on("focusout", function(){
-        pnombre= $("#p_nombre").val();
-        if(pnombre== "" || pnombre == " "){
-            document.getElementById("primerSmall")= empty_msg;
-            $("#primerSmall").css("visibility", "visible");
+    $("#paternoInput").on("focusout", function(){
+        paterno= $("#paternoInput").val();
+        if(paterno== "" || paterno == " "){
+            document.getElementById("paternoSmall").innerHTML= empty_msg;
+            $("#paternoSmall").css("visibility", "visible");
         }else{
-            $("#primerSmall").css("visibility", "hidden");
+            $("#paternoSmall").css("visibility", "hidden");
         }
     })
 
+    $("#maternoInput").on("focusout", function(){
+        materno= $("#maternoInput").val();
+        if(materno== "" || materno == " "){
+            document.getElementById("maternoSmall").innerHTML= empty_msg;
+            $("#maternoSmall").css("visibility", "visible");
+        }else{
+            $("#maternoSmall").css("visibility", "hidden");
+        }
+
+    })
+
+
+    $("#nombreInput").on("focusout", function(){
+        pnombre= $("#nombreInput").val();
+        if(pnombre== "" || pnombre == " "){
+            $("#nombreInput").val("");
+            document.getElementById("nombreSmall").innerHTML= empty_msg;
+            $("#nombreSmall").css("visibility", "visible");
+        }else{
+            $("#nombreSmall").css("visibility", "hidden");
+        }
+    })
+
+
+
+    $("#form-boton").on("click", function(){
+        email= $("#emailInput").val();
+        materno= $("#maternoInput").val();
+        paterno= $("#paternoInput").val();
+        pnombre= $("#nombreInput").val();
+        console.log(email + " H");
+
+        if(email== "" || email == " "){
+            document.getElementById("emailSmall").innerHTML= empty_msg;
+            $("#emailSmall").css("visibility", "visible");
+        }if(!regex.test(email)){
+            document.getElementById("emailSmall").innerHTML= "Debe ingresar un email valido";
+            $("#emailSmall").css("visibility", "visible");
+        }if(materno== "" || materno== " "){
+            document.getElementById("maternoSmall").innerHTML= empty_msg;
+            $("#maternoSmall").css("visibility", "visible");
+        }
+        if(paterno== "" || paterno== " "){
+            document.getElementById("paternoSmall").innerHTML= empty_msg;
+            $("#paternoSmall").css("visibility", "visible");
+        }
+        if(pnombre== "" || pnombre==" "){
+                $("#nombreInput").val("");
+                document.getElementById("nombreSmall").innerHTML= empty_msg;
+                $("#nombreSmall").css("visibility", "visible");
+        }else{
+            alert("Pago realizado con exito");
+        }
+    });
 });
 
 
 
 //Revisar
 
-$("#paternoInput").on("focusout", function(){
-    paterno= $("#paternoInput").val();
-    console.log(paterno + " paterno");
-    if(paterno== "" || paterno == " "){
-        $("#paternoInput").css("border-color", "red");
-        $("#paternoSmall").text(empty_msg);
-        $("#paternoSmall").css("visibilty", "visible");
-    }else{
-        $("#paternoInput").css("border-color", "#63E400");
-        $("#paternoSmall").css("visibilty", "hidden");
-    }
-})
-
-$("#maternoInput").on("focusout", function(){
-    materno= $("#maternoInput").val();
-    if(materno== "" || materno == " "){
-        $("#maternoInput").css("border-color", "red");
-        $("#maternoSmall").text(empty_msg);
-        $("#maternoSmall").toggle();
-    }else{
-        $("#maternoSmall").css("visibility", "hidden");
-        $("#maternoInput").css("border-color", "#63E400");
-    }
-
-})
-
-$("#form-boton").on("click", function(){
-    $("#primerSmall").text("Pedro"); 
-    email= $("#emailInput").val();
-    materno= $("#maternoInput").val();
-    paterno= $("#paternoInput").val();
-    pnombre= $("#p_nombre").val();
-    snombre= $("#s_nombre").val();
-    console.log(email + " H");
-
-    if(email== "" || email == " "){
-        $("#emailInput").css("border-color", "red");
-        $("#emailSmall").text(empty_msg);
-        $("#emailSmall").toggle();
-    }if(regex.test(email)){
-        $("#emailInput").css("border-color", "red");
-        $("#emailSmall").text( "Ingrese un email valido");
-        $("#emailSmall").toggle();
-    }if(materno== "" || materno== " "){
-        $("#maternoInput").css("border-color", "red");
-        $("#maternoSmall").text( empty_msg);
-        $("#maternoSmall").css("visibility", "visible");
-    }
-    if(paterno== "" || paterno== " "){
-        $("#paternoInput").css("border-color", "red");
-        $("#paternoSmall").text( empty_msg);
-        $("#paternoSmall").toggle();
-    }
-    if(pnombre== "" || pnombre==" "){
-        $("#p_nombre").css("border-color", "red");
-        $("#primerSmall").text( empty_msg);
-        $("#primerSmall").toggle();
-    }else{
-        alert("Pago realizado con exito");
-    }
-});
